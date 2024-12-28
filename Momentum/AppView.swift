@@ -6,12 +6,17 @@
 //
 
 import ComposableArchitecture
+import Events
 import SwiftUI
 
 struct AppView: View {
     @Bindable var store: StoreOf<AppFeature>
 
     var body: some View {
-        Text("Hello, World")
+        TabView {
+            Tab(TabOption.races.title, systemImage: TabOption.races.image) {
+                EventsView(store: store.scope(state: \.events, action: \.events))
+            }
+        }
     }
 }
