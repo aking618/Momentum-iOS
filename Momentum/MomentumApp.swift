@@ -6,6 +6,8 @@
 //
 
 import ComposableArchitecture
+import Database
+import SwiftData
 import SwiftUI
 
 @main
@@ -24,5 +26,6 @@ struct MomentumApp: App {
                 AppView(store: Self.store)
             }
         }
+        .modelContainer(SwiftDataModelConfigurationProvider.shared.container)
     }
 }

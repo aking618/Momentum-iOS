@@ -1,8 +1,8 @@
 //
 //  EventsView.swift
-//  Races
+//  Events
 //
-//  Created by Ayren King on 12/28/24.
+//  Created by Ayren King on 12/30/24.
 //
 
 import ComposableArchitecture
@@ -16,8 +16,6 @@ public struct EventsView: View {
     }
 
     public var body: some View {
-        Text("Events View")
+        Text("Events")
     }
 }
-
-

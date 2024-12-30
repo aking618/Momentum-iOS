@@ -2,9 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ComposableWrapper/ComposableWrapper.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Database/Database.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Momentum.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Events">
+      location = "group:Events/Events.xcodeproj">
    </FileRef>
 </Workspace>
