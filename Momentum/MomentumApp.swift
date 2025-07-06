@@ -26,6 +26,5 @@ struct MomentumApp: App {
                 AppView(store: Self.store)
             }
         }
-        .modelContainer(SwiftDataModelConfigurationProvider.shared.container)
     }
 }

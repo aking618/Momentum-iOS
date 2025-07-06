@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MomentumUI/MomentumUI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ComposableWrapper/ComposableWrapper.xcodeproj">
    </FileRef>
    <FileRef
