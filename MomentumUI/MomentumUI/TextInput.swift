@@ -20,7 +20,7 @@ public struct OutlinedTextFieldStyle: TextFieldStyle {
         VStack(alignment: .leading, spacing: 0) {
             if let label {
                 Text(label)
-                    .foregroundStyle(.textPrimary)
+                    .foregroundStyle(Color.textPrimary)
                     .font(.system(size: 13, weight: .medium))
             }
             configuration
@@ -28,7 +28,7 @@ public struct OutlinedTextFieldStyle: TextFieldStyle {
                 .padding(.vertical, 8)
                 .background(alignment: .bottom) {
                     Divider()
-                        .overlay(isFocused ? .primaryBlue : Color.gray.opacity(0.2))
+                        .overlay(isFocused ? Color.primaryBlue : Color.gray.opacity(0.2))
                 }
         }
     }

@@ -12,7 +12,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(!configuration.isPressed ? .buttonPrimary : .buttonPrimary.opacity(0.5))
+            .foregroundStyle(!configuration.isPressed ? Color.buttonPrimary : Color.buttonPrimary.opacity(0.5))
             .font(.system(size: 16, weight: .medium))
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
@@ -31,8 +31,8 @@ public struct SecondaryButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundStyle(
-                !isEnabled ? .buttonPrimary.opacity(0.75) :
-                !configuration.isPressed ? .buttonSecondary : .buttonSecondary.opacity(0.5)
+                !isEnabled ? Color.buttonPrimary.opacity(0.75) :
+                !configuration.isPressed ? Color.buttonSecondary : .buttonSecondary.opacity(0.5)
             )
             .font(.system(size: 16, weight: .medium))
             .padding(.vertical, 8)

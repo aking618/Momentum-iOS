@@ -43,7 +43,7 @@ public struct Podium<First: View, Second: View, Third: View>: View {
                     content: third,
                     height: heights[0],
                     width: columnWidth,
-                    color: .brown,
+                    color: Color(red: 205/255, green: 127/255, blue: 50/255),
                     delay: 0.1
                 )
 
@@ -61,7 +61,7 @@ public struct Podium<First: View, Second: View, Third: View>: View {
                     content: second,
                     height: heights[2],
                     width: columnWidth,
-                    color: .gray,
+                    color: Color(white: 0.8),
                     delay: 0.2
                 )
             }
@@ -71,6 +71,7 @@ public struct Podium<First: View, Second: View, Third: View>: View {
             }
         }
         .padding(.horizontal)
+        .background(Color.background)
     }
 
     private func podiumColumn<Content: View>(
@@ -84,10 +85,12 @@ public struct Podium<First: View, Second: View, Third: View>: View {
         VStack(spacing: 8) {
             Group {
                 Text(title)
-                    .font(.largeTitle)
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundStyle(Color.textPrimary)
 
                 content
-                    .font(.headline)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.textPrimary)
             }
             .opacity(appeared ? 1 : 0)
             .animation(.easeInOut(duration: 0.4).delay(delay), value: appeared)
@@ -103,28 +106,23 @@ public struct Podium<First: View, Second: View, Third: View>: View {
 }
 
 #Preview {
-    @Previewable @State var reset = false
     VStack(spacing: 20) {
         Text("Podium Results")
             .font(.title.bold())
 
-        Button("reset") { reset.toggle() }
-
         Spacer()
 
-        if reset {
-            Podium(
-                first: {
-                    Text("Alice")
-                },
-                second: {
-                    Text("Bob")
-                },
-                third: {
-                    Text("Charlie")
-                }
-            )
-        }
+        Podium(
+            first: {
+                Text("Alice")
+            },
+            second: {
+                Text("Bob")
+            },
+            third: {
+                Text("Charlie")
+            }
+        )
     }
     .padding()
 }

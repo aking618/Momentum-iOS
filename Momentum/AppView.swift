@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Events
+import Home
 import SwiftUI
 
 struct AppView: View {
@@ -14,6 +15,10 @@ struct AppView: View {
 
     var body: some View {
         TabView {
+            Tab(TabOption.home.title, systemImage: TabOption.home.image) {
+                HomeView(store: store.scope(state: \.home, action: \.home))
+            }
+
             Tab(TabOption.races.title, systemImage: TabOption.races.image) {
                 EventsView(store: store.scope(state: \.events, action: \.events))
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum TabOption: Hashable, CaseIterable {
+    case home
     case races
     case podium
     case data
@@ -15,6 +16,7 @@ enum TabOption: Hashable, CaseIterable {
 
     var title: String {
         switch self {
+        case .home: "Home"
         case .races: "Races"
         case .podium: "Podium"
         case .data: "Data"
@@ -24,6 +26,7 @@ enum TabOption: Hashable, CaseIterable {
 
     var image: String {
         switch self {
+        case .home: "house"
         case .races: "flag.pattern.checkered.2.crossed"
         case .podium: "trophy"
         case .data: "chart.xyaxis.line"

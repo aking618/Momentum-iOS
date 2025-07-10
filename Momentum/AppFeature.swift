@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Home
 import Events
 
 @Reducer
@@ -15,10 +16,12 @@ struct AppFeature {
         var selectedTab: TabOption = .races
 
         // Child Features
+        var home = HomeFeature.State()
         var events = EventsFeature.State()
     }
 
     enum Action: ViewAction, Equatable {
+        case home(HomeFeature.Action)
         case events(EventsFeature.Action)
         case view(View)
     }
@@ -30,12 +33,20 @@ struct AppFeature {
     var body: some ReducerOf<Self> {
         BindingReducer(action: \.view)
 
+        Scope(state: \.home, action: \.home) {
+            HomeFeature()
+        }
+
         Scope(state: \.events, action: \.events) {
             EventsFeature()
         }
 
         Reduce { state, action in
             switch action {
+            // Home Actions
+            case .home:
+                return .none
+
             // Event Actions
             case .events:
                 return .none
