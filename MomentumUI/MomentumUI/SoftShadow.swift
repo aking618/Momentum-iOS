@@ -15,7 +15,7 @@ struct SoftShadow: ViewModifier {
         color ?? .border
     }
 
-    init(radius: CGFloat = 12, color: Color? = nil) {
+    init(radius: CGFloat, color: Color?) {
         self.radius = radius
         self.color = color
     }
@@ -29,5 +29,12 @@ struct SoftShadow: ViewModifier {
 extension View {
     public func softShadow(radius: CGFloat = 12, color: Color? = nil) -> some View {
         modifier(SoftShadow(radius: radius, color: color))
+    }
+}
+
+
+#Preview {
+    Card {
+        Text("Hello, World!")
     }
 }

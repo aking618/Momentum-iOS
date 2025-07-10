@@ -21,7 +21,7 @@ public struct Card<Content: View>: View {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color.surface)
                     .stroke(Color.border)
-                    .softShadow()
+                    .softShadow(radius: 12, color: .background)
 
             )
     }
