@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Database
+import SharingGRDB
 import SwiftData
 import SwiftUI
 
@@ -16,6 +17,12 @@ struct MomentumApp: App {
     @MainActor
     static let store = Store(initialState: AppFeature.State()) {
         AppFeature()
+    }
+
+    init() {
+        prepareDependencies {
+            $0.defaultDatabase = try! .appDatabase()
+        }
     }
 
     var body: some Scene {
