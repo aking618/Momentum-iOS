@@ -10,7 +10,7 @@ let project = Project(
             product: .app,
             bundleId: "com.ayrenking.Momentum",
             deploymentTargets: .iOS("18.0"),
-            infoPlist: .file(path: "Momentum/Info.plist"),
+            infoPlist: "Momentum/Info.plist",
             sources: ["Momentum/Sources/**"],
             resources: ["Momentum/Resources/**"],
             entitlements: "Momentum/Momentum.entitlements",
@@ -157,6 +157,7 @@ let project = Project(
             bundleId: "com.ayrenking.MomentumUI",
             deploymentTargets: .iOS("18.0"),
             sources: ["MomentumUI/Sources/**"],
+            resources: ["MomentumUI/Resources/**"],
             dependencies: [
                 .external(name: "ComposableArchitecture")
             ]

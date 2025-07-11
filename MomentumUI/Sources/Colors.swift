@@ -8,17 +8,17 @@
 import SwiftUI
 
 public extension Color {
-    static let accentGreen = Color("accentGreen", bundle: .current)
-    static let background = Color("background", bundle: .current)
-    static let border = Color("border", bundle: .current)
-    static let buttonPrimary = Color("buttonPrimary", bundle: .current)
-    static let buttonSecondary = Color("buttonSecondary", bundle: .current)
-    static let error = Color("error", bundle: .current)
-    static let primaryBlue = Color("primaryBlue", bundle: .current)
-    static let progressFill = Color("progressFill", bundle: .current)
-    static let surface = Color("surface", bundle: .current)
-    static let textPrimary = Color("textPrimary", bundle: .current)
-    static let textSecondary = Color("textSecondary", bundle: .current)
+    static let accentGreen = MomentumUIAsset.accentGreen.swiftUIColor
+    static let background = MomentumUIAsset.background.swiftUIColor
+    static let border = MomentumUIAsset.border.swiftUIColor
+    static let buttonPrimary = MomentumUIAsset.buttonPrimary.swiftUIColor
+    static let buttonSecondary = MomentumUIAsset.buttonSecondary.swiftUIColor
+    static let error = MomentumUIAsset.error.swiftUIColor
+    static let primaryBlue = MomentumUIAsset.primaryBlue.swiftUIColor
+    static let progressFill = MomentumUIAsset.progressFill.swiftUIColor
+    static let surface = MomentumUIAsset.surface.swiftUIColor
+    static let textPrimary = MomentumUIAsset.textPrimary.swiftUIColor
+    static let textSecondary = MomentumUIAsset.textSecondary.swiftUIColor
 }
 
 extension Bundle {
