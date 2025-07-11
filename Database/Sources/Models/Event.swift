@@ -6,39 +6,24 @@
 //
 
 import Foundation
+import SharingGRDB
 
-public struct Event: Codable, Identifiable, Equatable {
-    public var id: UUID
+@Table
+public struct Event: Identifiable, Equatable {
+    public var id: Int
     public var name: String
-    public var typeId: UUID
+    public var eventTypeID: EventType.ID
     public var date: Date
-    public var location: String? // simple for now; can evolve to store lat/lng
+    public var location: Location.ID?
     public var status: EventStatus
+    public var finishTime: TimeInterval?
     public var scheduledReminder: Date?
     public var notes: String?
-
-    public init(
-        id: UUID = UUID(),
-        name: String,
-        typeId: UUID,
-        date: Date,
-        location: String? = nil,
-        status: EventStatus = .upcoming,
-        scheduledReminder: Date? = nil,
-        notes: String? = nil
-    ) {
-        self.id = id
-        self.name = name
-        self.typeId = typeId
-        self.date = date
-        self.location = location
-        self.status = status
-        self.scheduledReminder = scheduledReminder
-        self.notes = notes
-    }
 }
 
-public struct Location: Codable {
+@Table
+public struct Location: Identifiable, Equatable {
+    public var id: Int
     public let name: String
     public let latitude: Double?
     public let longitude: Double?

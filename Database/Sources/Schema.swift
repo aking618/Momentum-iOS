@@ -42,13 +42,38 @@ public extension DatabaseWriter where Self == DatabaseQueue {
         migrator.eraseDatabaseOnSchemaChange = true
         #endif
 
-        // register migrations
+        migrator.registerMigration("Create initial tables") { db in
+            try #sql(
+                """
+                CREATE TABLE \(quote: EventType.tableName) (
+                    "id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid()),
+                    "name" TEXT NOT NULL,
+                    "isDeletable" BOOL NOT NULL DEFAULT 1
+                )
+                """
+            )
+            .execute(db)
+
+            try db.seed {
+                EventType.Draft(name: "5K", isDeletable: false)
+                EventType.Draft(name: "10K", isDeletable: false)
+                EventType.Draft(name: "Half Marathon", isDeletable: false)
+                EventType.Draft(name: "Marathon", isDeletable: false)
+                EventType.Draft(name: "Sprint Triathlon", isDeletable: false)
+                EventType.Draft(name: "Olympic Triathlon", isDeletable: false)
+                EventType.Draft(name: "Half Ironman (70.3)", isDeletable: false)
+                EventType.Draft(name: "Full Ironman (140.6)", isDeletable: false)
+            }
+        }
+
 
         try migrator.migrate(database)
 
         // Migration for test data
         #if DEBUG
-        migrator.insertSampleData()
+        try database.write { db in
+            try db.insertSampleData()
+        }
         #endif
 
         return database
@@ -58,15 +83,9 @@ public extension DatabaseWriter where Self == DatabaseQueue {
 }
 
 #if DEBUG
-extension DatabaseMigrator {
-    mutating func insertSampleData() {
-//        self.registerMigration("Add Upcoming Event") { db in
-//            _ = try Event(
-//                name: "OKC River Run",
-//                typeId: UUID(),
-//                date: .now.addingTimeInterval(86400 * 3)
-//            ).inserted(db)
-//        }
+extension Database {
+    func insertSampleData() throws {
+
     }
 }
 #endif
