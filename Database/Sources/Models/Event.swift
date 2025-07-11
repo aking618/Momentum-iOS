@@ -5,6 +5,8 @@
 //  Created by Ayren King on 7/10/25.
 //
 
+import Foundation
+
 public struct Event: Codable, Identifiable, Equatable {
     public var id: UUID
     public var name: String
