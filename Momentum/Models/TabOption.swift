@@ -12,7 +12,7 @@ enum TabOption: Hashable, CaseIterable {
     case races
     case podium
     case data
-    case account
+    case profile
 
     var title: String {
         switch self {
@@ -20,7 +20,7 @@ enum TabOption: Hashable, CaseIterable {
         case .races: "Races"
         case .podium: "Podium"
         case .data: "Data"
-        case .account: "Account"
+        case .profile: "Account"
         }
     }
 
@@ -30,7 +30,7 @@ enum TabOption: Hashable, CaseIterable {
         case .races: "flag.pattern.checkered.2.crossed"
         case .podium: "trophy"
         case .data: "chart.xyaxis.line"
-        case .account: "person.fill"
+        case .profile: "person.fill"
         }
     }
 }

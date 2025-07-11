@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Home
 import Events
+import Profile
 
 @Reducer
 struct AppFeature {
@@ -18,11 +19,13 @@ struct AppFeature {
         // Child Features
         var home = HomeFeature.State()
         var events = EventsFeature.State()
+        var profile = ProfileFeature.State()
     }
 
     enum Action: ViewAction, Equatable {
         case home(HomeFeature.Action)
         case events(EventsFeature.Action)
+        case profile(ProfileFeature.Action)
         case view(View)
     }
 
@@ -41,6 +44,10 @@ struct AppFeature {
             EventsFeature()
         }
 
+        Scope(state: \.profile, action: \.profile) {
+            ProfileFeature()
+        }
+
         Reduce { state, action in
             switch action {
             // Home Actions
@@ -49,6 +56,10 @@ struct AppFeature {
 
             // Event Actions
             case .events:
+                return .none
+
+            // Profile Actions
+            case .profile:
                 return .none
 
             // View Actions

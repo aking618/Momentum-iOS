@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Events
 import Home
+import Profile
 import SwiftUI
 
 struct AppView: View {
@@ -31,8 +32,8 @@ struct AppView: View {
                 Text(TabOption.data.title)
             }
 
-            Tab(TabOption.account.title, systemImage: TabOption.account.image) {
-                Text(TabOption.account.title)
+            Tab(TabOption.profile.title, systemImage: TabOption.profile.image) {
+                ProfileView(store: store.scope(state: \.profile, action: \.profile))
             }
         }
     }
